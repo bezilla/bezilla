@@ -1,8 +1,5 @@
 ## Paul Bezilla
 
-Infrastructure, platform, and reliability engineering. Twenty years across
-CDN, streaming, and e-commerce.
-
 These five repositories are one argument made five times: **a system is only as
 trustworthy as the checks you have actually verified.** Each one runs, each one
 records what it got wrong, and each one is instrumented so the behavior is
