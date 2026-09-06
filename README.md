@@ -1,7 +1,7 @@
 ## Paul Bezilla
 
-Infrastructure and reliability engineering. Twenty years across CDN, streaming,
-and e-commerce.
+Infrastructure, platform, and reliability engineering. Twenty years across CDN,
+streaming, and e-commerce.
 
 ![Five repositories: three stacked as application, platform, and cloud; capsize and switchyard standing separately, connected to nothing.](docs/five-repositories.svg)
 
