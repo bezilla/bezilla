@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 772" width="1240" height="772" role="img" aria-labelledby="t d">
 <title id="t">Five repositories: a stack of three joined by one real dependency and one conceptual one, and two that stand alone</title>
-<desc id="d">Three repositories are drawn as a vertical stack, in the same order as the three-repos diagram in kubernetes-platform-reference: the application on top, the platform in the middle, the cloud underneath. otel-service-reference, a Go service instrumented with OpenTelemetry, sits at the top. A SOLID arrow runs down from it to kubernetes-platform-reference. That edge is real but optional: the platform deploys this workload, building its sample image from a sibling checkout at ../otel-service-reference when one is on disk. It does not clone the repository, and without that checkout it builds a fallback workload instead, losing only the telemetry. A DASHED arrow runs down from kubernetes-platform-reference to terragrunt-reference-architecture, and dashed means conceptual rather than real: neither repository references the other in code, configuration or CI, and the platform brings itself up on kind. To the right of a dashed divider, and joined to nothing, stand two further repositories. capsize is a read-only Kubernetes CLI that points at any cluster through an existing kubeconfig. switchyard is an inference gateway: it routes inference across three simulated providers, fails over when one breaks, and ramps traffic back as it recovers. Neither capsize nor switchyard depends on any of the other three, and no arrow touches them.</desc>
+<desc id="d">Three repositories are drawn as a vertical stack, in the same order as the three-repos diagram in kubernetes-platform-reference: the application on top, the platform in the middle, the cloud underneath. otel-service-reference, a Go service instrumented with OpenTelemetry, sits at the top. A SOLID arrow runs down from it to kubernetes-platform-reference. That edge is real but optional: the platform deploys this workload, building its sample image from a sibling checkout at ../otel-service-reference when one is on disk. It does not clone the repository, and without that checkout it builds a fallback workload instead, losing only the telemetry. A DASHED arrow runs down from kubernetes-platform-reference to terragrunt-reference-architecture, and dashed means conceptual rather than real: neither repository references the other in code, configuration or CI, and the platform brings itself up on kind. To the right of a dashed divider, and joined to nothing, stand two further repositories. capsize is a read-only Kubernetes CLI that scores cost waste against blast radius and says where cutting one raises the other, pointing at any cluster through an existing kubeconfig. switchyard is an inference gateway: it routes inference across three simulated providers, fails over when one breaks, and ramps traffic back as it recovers. Neither capsize nor switchyard depends on any of the other three, and no arrow touches them.</desc>
 <style>text{font-family:ui-sans-serif,-apple-system,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}</style>
 <rect width="1240" height="772" fill="#0d1117"/>
 <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#8b949e"/></marker><marker id="arc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="none" stroke="#8b949e" stroke-width="1.4"/></marker></defs>
@@ -23,10 +23,9 @@
 <rect x="345" y="234" width="81" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
 <text x="385.5" y="250" fill="#8b949e" font-size="11" text-anchor="middle">exemplars</text>
 <path d="M132 262 L132 354" stroke="#8b949e" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
-<text x="150" y="286" fill="#f0f6fc" font-size="12" font-weight="700">deploys onto the platform &#8212; real, and optional</text>
-<text x="150" y="304" fill="#8b949e" font-size="12">scripts/sample-image.sh builds the sample image from a sibling checkout at</text>
-<text x="150" y="320" fill="#8b949e" font-size="12">../otel-service-reference when it is on disk. It does not clone it. Without one</text>
-<text x="150" y="338" fill="#8b949e" font-size="12">it builds bootstrap/fallback-workload instead, and only the telemetry is lost.</text>
+<text x="150" y="292" fill="#f0f6fc" font-size="12" font-weight="700">deploys onto the platform &#8212; real, and optional</text>
+<text x="150" y="314" fill="#8b949e" font-size="12">Built from a sibling checkout at ../otel-service-reference when one is on disk,</text>
+<text x="150" y="332" fill="#8b949e" font-size="12">and a fallback workload when there is not.</text>
 <rect x="56" y="358" width="712" height="126" rx="12" fill="#11161d" stroke="#30363d" stroke-width="1"/>
 <rect x="56" y="358" width="5" height="126" rx="2.5" fill="#58a6ff"/>
 <text x="84" y="388" fill="#58a6ff" font-size="11" font-weight="700" letter-spacing="0.08em">THE PLATFORM</text>
@@ -45,9 +44,8 @@
 <rect x="674" y="456" width="47" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
 <text x="697.5" y="472" fill="#8b949e" font-size="11" text-anchor="middle">Helm</text>
 <path d="M132 484 L132 564" stroke="#8b949e" stroke-width="1.5" stroke-dasharray="6 6" fill="none" marker-end="url(#arc)"/>
-<text x="150" y="511" fill="#f0f6fc" font-size="12" font-weight="700">would run on &#8212; conceptual, not a dependency</text>
-<text x="150" y="528" fill="#8b949e" font-size="12">Neither repository names the other in code, configuration or CI. The platform</text>
-<text x="150" y="545" fill="#8b949e" font-size="12">brings itself up on kind; this is the estate it would run on, and nothing more.</text>
+<text x="150" y="518" fill="#f0f6fc" font-size="12" font-weight="700">would run on &#8212; conceptual, not a dependency</text>
+<text x="150" y="540" fill="#8b949e" font-size="12">Neither repository names the other in code, configuration or CI.</text>
 <rect x="56" y="568" width="712" height="126" rx="12" fill="#11161d" stroke="#30363d" stroke-width="1"/>
 <rect x="56" y="568" width="5" height="126" rx="2.5" fill="#bc8cff"/>
 <text x="84" y="598" fill="#bc8cff" font-size="11" font-weight="700" letter-spacing="0.08em">THE CLOUD</text>
@@ -69,9 +67,9 @@
 <rect x="848" y="136" width="5" height="148" rx="2.5" fill="#3fb950"/>
 <text x="876" y="166" fill="#3fb950" font-size="11" font-weight="700" letter-spacing="0.08em">READ-ONLY CLI</text>
 <text x="876" y="196" fill="#f0f6fc" font-size="20" font-weight="700">capsize</text>
-<text x="876" y="220" fill="#c9d1d9" font-size="13">Points at any cluster through the kubeconfig</text>
-<text x="876" y="238" fill="#c9d1d9" font-size="13">kubectl already uses. No agent, no</text>
-<text x="876" y="256" fill="#c9d1d9" font-size="13">cluster-side install, no account.</text>
+<text x="876" y="220" fill="#c9d1d9" font-size="13">Scores cost waste against blast radius, and</text>
+<text x="876" y="238" fill="#c9d1d9" font-size="13">says where cutting one raises the other.</text>
+<text x="876" y="256" fill="#c9d1d9" font-size="13">Read-only, through your own kubeconfig.</text>
 <rect x="876" y="270" width="34" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
 <text x="893.0" y="286" fill="#8b949e" font-size="11" text-anchor="middle">Go</text>
 <rect x="918" y="270" width="81" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
@@ -91,5 +89,5 @@
 <text x="979.0" y="458" fill="#8b949e" font-size="11" text-anchor="middle">circuit breaker</text>
 <rect x="1048" y="442" width="88" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
 <text x="1092.0" y="458" fill="#8b949e" font-size="11" text-anchor="middle">Prometheus</text>
-<text x="56" y="730" fill="#8b949e" font-size="12">Each of the five runs on its own. The one real edge is a build-time read of a path on disk &#8212; not a network fetch, and not a clone.</text>
+<text x="56" y="730" fill="#8b949e" font-size="12">Each of the five runs on its own. The one real edge is a build-time read of a path on disk.</text>
 </svg>
