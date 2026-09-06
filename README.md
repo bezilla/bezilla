@@ -1,6 +1,6 @@
 ## Paul Bezilla
 
-Infrastructure, platform, and reliability engineering. Twenty years across CDN,
+Platform, infrastructure, and reliability engineering. Twenty years across CDN,
 streaming, and e-commerce.
 
 #### Recent projects
