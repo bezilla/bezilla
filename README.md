@@ -1,7 +1,7 @@
 ## Paul Bezilla
 
-Infrastructure and reliability engineering. Twenty years across CDN, streaming,
-and e-commerce.
+Infrastructure, platform, and reliability engineering. Twenty years across
+CDN, streaming, and e-commerce.
 
 These five repositories are one argument made five times: **a system is only as
 trustworthy as the checks you have actually verified.** Each one runs, each one
