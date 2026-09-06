@@ -1,0 +1,47 @@
+# Actions are pinned by full commit SHA, not by tag. A tag is a mutable pointer
+# in somebody else's repository: v5 moves whenever its owner moves it, and an
+# action that is compromised or simply changed lands here on the next run with
+# no diff in this file. A SHA is the artifact itself. The trailing comment is
+# the human-readable version the SHA resolved to when it was written.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  # One job. This repository is a README and an SVG: there is nothing to build,
+  # nothing to lint and no dependency to audit, so the Go jobs the other
+  # repositories carry would be machinery guarding nothing. What does apply is
+  # the gate -- this is the account-facing repository, and identity and trailers
+  # matter here exactly as much as anywhere else.
+  #
+  # The standalone gitleaks-action job is deliberately absent too: the hook
+  # already scans full history in --all-history mode, and that action requires
+  # GITHUB_TOKEN on pull_request events, which it is not given.
+  identity:
+    name: identity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          # The gate checks every commit, so it needs every commit. With the
+          # default shallow clone it would check one and report success.
+          fetch-depth: 0
+      - name: install gitleaks
+        run: |
+          version=8.24.0
+          curl -sSL "https://github.com/gitleaks/gitleaks/releases/download/v${version}/gitleaks_${version}_linux_x64.tar.gz" \
+            | tar -xz -C /usr/local/bin gitleaks
+          gitleaks version
+      - name: identity, trailers and secrets over all history
+        # The same file the pre-push hook runs, in its --all-history mode. The
+        # hook is per-clone configuration and does not travel with a clone, so
+        # this is the copy nobody can forget to install.
+        run: ./.githooks/pre-push --all-history
+      - name: prove the gate rejects and accepts what it claims
+        run: ./.githooks/selftest.sh
