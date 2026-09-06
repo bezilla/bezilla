@@ -23,6 +23,14 @@ jobs:
   # The standalone gitleaks-action job is deliberately absent too: the hook
   # already scans full history in --all-history mode, and that action requires
   # GITHUB_TOKEN on pull_request events, which it is not given.
+  #
+  # Branch protection here also diverges from the other six on one setting, and
+  # it is a decision rather than an oversight. They enable enforce_admins, so the
+  # required check binds the administrator as well. This repository leaves it
+  # off: it is a README and an SVG, edited occasionally by one person, and the
+  # pre-push hook is the layer that actually gates those edits. The identity job
+  # below is still a required check and still runs on every push. What is not
+  # required is routing a two-file prose change through a pull request.
   identity:
     name: identity
     runs-on: ubuntu-latest
