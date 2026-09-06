@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 800" width="1240" height="800" role="img" aria-labelledby="t d">
+<title id="t">Five repositories: a stack of three joined by one real dependency and one conceptual one, and two that stand alone</title>
+<desc id="d">Three repositories are drawn as a vertical stack. terragrunt-reference-architecture, an AWS estate of EKS, Aurora and a CloudFront/WAF edge across management, staging and prod accounts, sits at the top. A DASHED arrow runs from it down to kubernetes-platform-reference, and dashed means conceptual rather than real: neither repository references the other in code, configuration or CI, and the platform brings itself up on kind. A SOLID arrow runs from kubernetes-platform-reference down to otel-service-reference, and that one is a real dependency, though an optional one: the platform builds its sample image from a sibling checkout at ../otel-service-reference if that checkout is present on disk. It does not clone the repository. Without the checkout it builds a fallback workload instead and only the telemetry is lost. To the right of a dashed divider, and joined to nothing, stand two further repositories. capsize is a read-only Kubernetes CLI that points at any cluster through an existing kubeconfig. switchyard is an independent inference gateway with its own simulated providers. Neither capsize nor switchyard depends on any of the other three, and no arrow touches them.</desc>
+<style>text{font-family:ui-sans-serif,-apple-system,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}</style>
+<rect width="1240" height="800" fill="#0d1117"/>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#8b949e"/></marker><marker id="arc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="none" stroke="#8b949e" stroke-width="1.4"/></marker></defs>
+<text x="56" y="52" fill="#f0f6fc" font-size="26" font-weight="700">Five repositories, and only the dependencies that exist</text>
+<text x="56" y="80" fill="#8b949e" font-size="14">Three of them connect. Two of them do not, and drawing an arrow to either would be the easiest lie in this diagram to tell.</text>
+<text x="56" y="118" fill="#8b949e" font-size="11" font-weight="700" letter-spacing="0.08em">ONE STACK &#183; EACH EDGE LABELLED WITH WHAT IT ACTUALLY IS</text>
+<text x="848" y="118" fill="#8b949e" font-size="11" font-weight="700" letter-spacing="0.08em">STANDS ALONE &#183; DEPENDS ON NOTHING HERE</text>
+<path d="M804 132 V694" stroke="#30363d" stroke-width="1" stroke-dasharray="6 6" fill="none"/>
+<rect x="56" y="136" width="712" height="126" rx="12" fill="#11161d" stroke="#30363d" stroke-width="1"/>
+<rect x="56" y="136" width="5" height="126" rx="2.5" fill="#bc8cff"/>
+<text x="84" y="166" fill="#bc8cff" font-size="11" font-weight="700" letter-spacing="0.08em">THE AWS FOUNDATION</text>
+<text x="84" y="196" fill="#f0f6fc" font-size="20" font-weight="700">terragrunt-reference-architecture</text>
+<text x="84" y="220" fill="#c9d1d9" font-size="13">The AWS estate, across isolated management, staging and prod accounts.</text>
+<rect x="84" y="234" width="74" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="121.0" y="250" fill="#8b949e" font-size="11" text-anchor="middle">OpenTofu</text>
+<rect x="166" y="234" width="88" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="210.0" y="250" fill="#8b949e" font-size="11" text-anchor="middle">Terragrunt</text>
+<rect x="262" y="234" width="40" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="282.0" y="250" fill="#8b949e" font-size="11" text-anchor="middle">EKS</text>
+<rect x="310" y="234" width="61" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="340.5" y="250" fill="#8b949e" font-size="11" text-anchor="middle">Aurora</text>
+<rect x="379" y="234" width="129" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="443.5" y="250" fill="#8b949e" font-size="11" text-anchor="middle">CloudFront + WAF</text>
+<rect x="516" y="234" width="95" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="563.5" y="250" fill="#8b949e" font-size="11" text-anchor="middle">GitHub OIDC</text>
+<path d="M132 262 L132 342" stroke="#8b949e" stroke-width="1.5" stroke-dasharray="6 6" fill="none" marker-end="url(#arc)"/>
+<text x="150" y="289" fill="#f0f6fc" font-size="12" font-weight="700">conceptual &#8212; drawn dashed because it is not a dependency</text>
+<text x="150" y="306" fill="#8b949e" font-size="12">Neither repository names the other in code, configuration or CI. The platform</text>
+<text x="150" y="323" fill="#8b949e" font-size="12">brings itself up on kind; this is the estate it would run on, and nothing more.</text>
+<rect x="56" y="346" width="712" height="126" rx="12" fill="#11161d" stroke="#30363d" stroke-width="1"/>
+<rect x="56" y="346" width="5" height="126" rx="2.5" fill="#58a6ff"/>
+<text x="84" y="376" fill="#58a6ff" font-size="11" font-weight="700" letter-spacing="0.08em">THE PLATFORM</text>
+<text x="84" y="406" fill="#f0f6fc" font-size="20" font-weight="700">kubernetes-platform-reference</text>
+<text x="84" y="430" fill="#c9d1d9" font-size="13">A complete Kubernetes platform, up on a laptop in about five minutes.</text>
+<rect x="84" y="444" width="68" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="118.0" y="460" fill="#8b949e" font-size="11" text-anchor="middle">Argo CD</text>
+<rect x="160" y="444" width="95" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="207.5" y="460" fill="#8b949e" font-size="11" text-anchor="middle">Gateway API</text>
+<rect x="263" y="444" width="102" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="314.0" y="460" fill="#8b949e" font-size="11" text-anchor="middle">cert-manager</text>
+<rect x="373" y="444" width="170" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="458.0" y="460" fill="#8b949e" font-size="11" text-anchor="middle">Kyverno &#183; Enforce</text>
+<rect x="551" y="444" width="115" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="608.5" y="460" fill="#8b949e" font-size="11" text-anchor="middle">OTel Collector</text>
+<rect x="674" y="444" width="47" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="697.5" y="460" fill="#8b949e" font-size="11" text-anchor="middle">Helm</text>
+<path d="M132 472 L132 564" stroke="#8b949e" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+<text x="150" y="496" fill="#f0f6fc" font-size="12" font-weight="700">real, and optional</text>
+<text x="150" y="514" fill="#8b949e" font-size="12">scripts/sample-image.sh builds the sample image from a sibling checkout at</text>
+<text x="150" y="530" fill="#8b949e" font-size="12">../otel-service-reference when it is on disk. It does not clone it. Without one</text>
+<text x="150" y="548" fill="#8b949e" font-size="12">it builds bootstrap/fallback-workload instead, and only the telemetry is lost.</text>
+<rect x="56" y="568" width="712" height="126" rx="12" fill="#11161d" stroke="#30363d" stroke-width="1"/>
+<rect x="56" y="568" width="5" height="126" rx="2.5" fill="#f0883e"/>
+<text x="84" y="598" fill="#f0883e" font-size="11" font-weight="700" letter-spacing="0.08em">THE WORKLOAD</text>
+<text x="84" y="628" fill="#f0f6fc" font-size="20" font-weight="700">otel-service-reference</text>
+<text x="84" y="652" fill="#c9d1d9" font-size="13">The instrumented Go service the platform deploys. Shares no code &#8212; only OTLP.</text>
+<rect x="84" y="666" width="34" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="101.0" y="682" fill="#8b949e" font-size="11" text-anchor="middle">Go</text>
+<rect x="126" y="666" width="74" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="163.0" y="682" fill="#8b949e" font-size="11" text-anchor="middle">OTel SDK</text>
+<rect x="208" y="666" width="129" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="272.5" y="682" fill="#8b949e" font-size="11" text-anchor="middle">traces + metrics</text>
+<rect x="345" y="666" width="81" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="385.5" y="682" fill="#8b949e" font-size="11" text-anchor="middle">exemplars</text>
+<rect x="848" y="136" width="336" height="148" rx="12" fill="#11161d" stroke="#30363d" stroke-width="1" stroke-dasharray="7 5"/>
+<rect x="848" y="136" width="5" height="148" rx="2.5" fill="#3fb950"/>
+<text x="876" y="166" fill="#3fb950" font-size="11" font-weight="700" letter-spacing="0.08em">READ-ONLY CLI</text>
+<text x="876" y="196" fill="#f0f6fc" font-size="20" font-weight="700">capsize</text>
+<text x="876" y="220" fill="#c9d1d9" font-size="13">Points at any cluster through the kubeconfig</text>
+<text x="876" y="238" fill="#c9d1d9" font-size="13">kubectl already uses. No agent, no</text>
+<text x="876" y="256" fill="#c9d1d9" font-size="13">cluster-side install, no arrow into it.</text>
+<rect x="876" y="270" width="34" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="893.0" y="286" fill="#8b949e" font-size="11" text-anchor="middle">Go</text>
+<rect x="918" y="270" width="81" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="958.5" y="286" fill="#8b949e" font-size="11" text-anchor="middle">read-only</text>
+<rect x="1007" y="270" width="88" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="1051.0" y="286" fill="#8b949e" font-size="11" text-anchor="middle">kubeconfig</text>
+<rect x="848" y="308" width="336" height="166" rx="12" fill="#11161d" stroke="#30363d" stroke-width="1" stroke-dasharray="7 5"/>
+<rect x="848" y="308" width="5" height="166" rx="2.5" fill="#e3b341"/>
+<text x="876" y="338" fill="#e3b341" font-size="11" font-weight="700" letter-spacing="0.08em">INFERENCE GATEWAY</text>
+<text x="876" y="368" fill="#f0f6fc" font-size="20" font-weight="700">switchyard</text>
+<text x="876" y="392" fill="#c9d1d9" font-size="13">An independent gateway over its own</text>
+<text x="876" y="410" fill="#c9d1d9" font-size="13">simulated providers. Nothing here reaches</text>
+<text x="876" y="428" fill="#c9d1d9" font-size="13">into it, and it reaches into nothing here.</text>
+<rect x="876" y="442" width="34" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="893.0" y="458" fill="#8b949e" font-size="11" text-anchor="middle">Go</text>
+<rect x="918" y="442" width="122" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="979.0" y="458" fill="#8b949e" font-size="11" text-anchor="middle">circuit breaker</text>
+<rect x="1048" y="442" width="88" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="1092.0" y="458" fill="#8b949e" font-size="11" text-anchor="middle">Prometheus</text>
+<text x="848" y="522" fill="#8b949e" font-size="12">Both are drawn with a broken border for the same reason</text>
+<text x="848" y="540" fill="#8b949e" font-size="12">the arrows are labelled: a reviewer who discovers a</text>
+<text x="848" y="558" fill="#8b949e" font-size="12">relationship was implied rather than real stops trusting</text>
+<text x="848" y="576" fill="#8b949e" font-size="12">the four claims that were.</text>
+<text x="56" y="736" fill="#8b949e" font-size="12">Each of the five runs on its own. The one real edge above is a build-time read of a path on disk, not a network fetch and not a clone.</text>
+</svg>
