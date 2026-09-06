@@ -3,6 +3,8 @@
 Infrastructure, platform, and reliability engineering. Twenty years across CDN,
 streaming, and e-commerce.
 
+#### Recent projects
+
 ![Five repositories: three stacked as application, platform, and cloud; capsize and switchyard standing separately, connected to nothing.](docs/five-repositories.svg)
 
 Three of these stack: **otel-service-reference** is the application,
