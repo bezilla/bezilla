@@ -1,5 +1,8 @@
 ## Paul Bezilla
 
+Infrastructure and platform engineer. Twenty years across CDN, streaming, and
+e-commerce.
+
 #### Recent projects
 
 ![Five repositories: three stacked as application, platform, and cloud; capsize and switchyard standing separately, connected to nothing.](docs/five-repositories.svg)
