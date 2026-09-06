@@ -1,7 +1,7 @@
 ## Paul Bezilla
 
-Infrastructure and platform engineer. Twenty years across CDN, streaming, and
-e-commerce.
+Infrastructure and platform engineer. Kubernetes, observability, reliability,
+and cloud systems.
 
 #### Recent projects
 
