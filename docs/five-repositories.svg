@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 772" width="1240" height="772" role="img" aria-labelledby="t d">
 <title id="t">Five repositories: a stack of three joined by one real dependency and one conceptual one, and two that stand alone</title>
-<desc id="d">Three repositories are drawn as a vertical stack. terragrunt-reference-architecture, an AWS estate of EKS, Aurora and a CloudFront/WAF edge across management, staging and prod accounts, sits at the top. A DASHED arrow runs from it down to kubernetes-platform-reference, and dashed means conceptual rather than real: neither repository references the other in code, configuration or CI, and the platform brings itself up on kind. A SOLID arrow runs from kubernetes-platform-reference down to otel-service-reference, and that one is a real dependency, though an optional one: the platform builds its sample image from a sibling checkout at ../otel-service-reference if that checkout is present on disk. It does not clone the repository. Without the checkout it builds a fallback workload instead and only the telemetry is lost. To the right of a dashed divider, and joined to nothing, stand two further repositories. capsize is a read-only Kubernetes CLI that points at any cluster through an existing kubeconfig. switchyard is an independent inference gateway with its own simulated providers. Neither capsize nor switchyard depends on any of the other three, and no arrow touches them.</desc>
+<desc id="d">Three repositories are drawn as a vertical stack, in the same order as the three-repos diagram in kubernetes-platform-reference: the application on top, the platform in the middle, the cloud underneath. otel-service-reference, a Go service instrumented with OpenTelemetry, sits at the top. A SOLID arrow runs down from it to kubernetes-platform-reference. That edge is real but optional: the platform deploys this workload, building its sample image from a sibling checkout at ../otel-service-reference when one is on disk. It does not clone the repository, and without that checkout it builds a fallback workload instead, losing only the telemetry. A DASHED arrow runs down from kubernetes-platform-reference to terragrunt-reference-architecture, and dashed means conceptual rather than real: neither repository references the other in code, configuration or CI, and the platform brings itself up on kind. To the right of a dashed divider, and joined to nothing, stand two further repositories. capsize is a read-only Kubernetes CLI that points at any cluster through an existing kubeconfig. switchyard is an independent inference gateway with its own simulated providers. Neither capsize nor switchyard depends on any of the other three, and no arrow touches them.</desc>
 <style>text{font-family:ui-sans-serif,-apple-system,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}</style>
 <rect width="1240" height="772" fill="#0d1117"/>
 <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#8b949e"/></marker><marker id="arc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="none" stroke="#8b949e" stroke-width="1.4"/></marker></defs>
@@ -10,61 +10,61 @@
 <text x="848" y="118" fill="#8b949e" font-size="11" font-weight="700" letter-spacing="0.08em">STANDS ALONE &#183; DEPENDS ON NOTHING HERE</text>
 <path d="M804 132 V694" stroke="#30363d" stroke-width="1" stroke-dasharray="6 6" fill="none"/>
 <rect x="56" y="136" width="712" height="126" rx="12" fill="#11161d" stroke="#30363d" stroke-width="1"/>
-<rect x="56" y="136" width="5" height="126" rx="2.5" fill="#bc8cff"/>
-<text x="84" y="166" fill="#bc8cff" font-size="11" font-weight="700" letter-spacing="0.08em">THE AWS FOUNDATION</text>
-<text x="84" y="196" fill="#f0f6fc" font-size="20" font-weight="700">terragrunt-reference-architecture</text>
-<text x="84" y="220" fill="#c9d1d9" font-size="13">The AWS estate, across isolated management, staging and prod accounts.</text>
-<rect x="84" y="234" width="74" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-<text x="121.0" y="250" fill="#8b949e" font-size="11" text-anchor="middle">OpenTofu</text>
-<rect x="166" y="234" width="88" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-<text x="210.0" y="250" fill="#8b949e" font-size="11" text-anchor="middle">Terragrunt</text>
-<rect x="262" y="234" width="40" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-<text x="282.0" y="250" fill="#8b949e" font-size="11" text-anchor="middle">EKS</text>
-<rect x="310" y="234" width="61" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-<text x="340.5" y="250" fill="#8b949e" font-size="11" text-anchor="middle">Aurora</text>
-<rect x="379" y="234" width="129" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-<text x="443.5" y="250" fill="#8b949e" font-size="11" text-anchor="middle">CloudFront + WAF</text>
-<rect x="516" y="234" width="95" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-<text x="563.5" y="250" fill="#8b949e" font-size="11" text-anchor="middle">GitHub OIDC</text>
-<path d="M132 262 L132 342" stroke="#8b949e" stroke-width="1.5" stroke-dasharray="6 6" fill="none" marker-end="url(#arc)"/>
-<text x="150" y="289" fill="#f0f6fc" font-size="12" font-weight="700">conceptual &#8212; not a dependency</text>
-<text x="150" y="306" fill="#8b949e" font-size="12">Neither repository names the other in code, configuration or CI. The platform</text>
-<text x="150" y="323" fill="#8b949e" font-size="12">brings itself up on kind; this is the estate it would run on, and nothing more.</text>
-<rect x="56" y="346" width="712" height="126" rx="12" fill="#11161d" stroke="#30363d" stroke-width="1"/>
-<rect x="56" y="346" width="5" height="126" rx="2.5" fill="#58a6ff"/>
-<text x="84" y="376" fill="#58a6ff" font-size="11" font-weight="700" letter-spacing="0.08em">THE PLATFORM</text>
-<text x="84" y="406" fill="#f0f6fc" font-size="20" font-weight="700">kubernetes-platform-reference</text>
-<text x="84" y="430" fill="#c9d1d9" font-size="13">A complete Kubernetes platform, up on a laptop in about five minutes.</text>
-<rect x="84" y="444" width="68" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-<text x="118.0" y="460" fill="#8b949e" font-size="11" text-anchor="middle">Argo CD</text>
-<rect x="160" y="444" width="95" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-<text x="207.5" y="460" fill="#8b949e" font-size="11" text-anchor="middle">Gateway API</text>
-<rect x="263" y="444" width="102" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-<text x="314.0" y="460" fill="#8b949e" font-size="11" text-anchor="middle">cert-manager</text>
-<rect x="373" y="444" width="170" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-<text x="458.0" y="460" fill="#8b949e" font-size="11" text-anchor="middle">Kyverno &#183; Enforce</text>
-<rect x="551" y="444" width="115" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-<text x="608.5" y="460" fill="#8b949e" font-size="11" text-anchor="middle">OTel Collector</text>
-<rect x="674" y="444" width="47" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-<text x="697.5" y="460" fill="#8b949e" font-size="11" text-anchor="middle">Helm</text>
-<path d="M132 472 L132 564" stroke="#8b949e" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
-<text x="150" y="496" fill="#f0f6fc" font-size="12" font-weight="700">real, and optional</text>
-<text x="150" y="514" fill="#8b949e" font-size="12">scripts/sample-image.sh builds the sample image from a sibling checkout at</text>
-<text x="150" y="530" fill="#8b949e" font-size="12">../otel-service-reference when it is on disk. It does not clone it. Without one</text>
-<text x="150" y="548" fill="#8b949e" font-size="12">it builds bootstrap/fallback-workload instead, and only the telemetry is lost.</text>
+<rect x="56" y="136" width="5" height="126" rx="2.5" fill="#f0883e"/>
+<text x="84" y="166" fill="#f0883e" font-size="11" font-weight="700" letter-spacing="0.08em">THE APPLICATION</text>
+<text x="84" y="196" fill="#f0f6fc" font-size="20" font-weight="700">otel-service-reference</text>
+<text x="84" y="220" fill="#c9d1d9" font-size="13">The instrumented Go service the platform deploys. Shares no code &#8212; only OTLP.</text>
+<rect x="84" y="234" width="34" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="101.0" y="250" fill="#8b949e" font-size="11" text-anchor="middle">Go</text>
+<rect x="126" y="234" width="74" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="163.0" y="250" fill="#8b949e" font-size="11" text-anchor="middle">OTel SDK</text>
+<rect x="208" y="234" width="129" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="272.5" y="250" fill="#8b949e" font-size="11" text-anchor="middle">traces + metrics</text>
+<rect x="345" y="234" width="81" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="385.5" y="250" fill="#8b949e" font-size="11" text-anchor="middle">exemplars</text>
+<path d="M132 262 L132 354" stroke="#8b949e" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+<text x="150" y="286" fill="#f0f6fc" font-size="12" font-weight="700">deploys onto the platform &#8212; real, and optional</text>
+<text x="150" y="304" fill="#8b949e" font-size="12">scripts/sample-image.sh builds the sample image from a sibling checkout at</text>
+<text x="150" y="320" fill="#8b949e" font-size="12">../otel-service-reference when it is on disk. It does not clone it. Without one</text>
+<text x="150" y="338" fill="#8b949e" font-size="12">it builds bootstrap/fallback-workload instead, and only the telemetry is lost.</text>
+<rect x="56" y="358" width="712" height="126" rx="12" fill="#11161d" stroke="#30363d" stroke-width="1"/>
+<rect x="56" y="358" width="5" height="126" rx="2.5" fill="#58a6ff"/>
+<text x="84" y="388" fill="#58a6ff" font-size="11" font-weight="700" letter-spacing="0.08em">THE PLATFORM</text>
+<text x="84" y="418" fill="#f0f6fc" font-size="20" font-weight="700">kubernetes-platform-reference</text>
+<text x="84" y="442" fill="#c9d1d9" font-size="13">A complete Kubernetes platform, up on a laptop in about five minutes.</text>
+<rect x="84" y="456" width="68" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="118.0" y="472" fill="#8b949e" font-size="11" text-anchor="middle">Argo CD</text>
+<rect x="160" y="456" width="95" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="207.5" y="472" fill="#8b949e" font-size="11" text-anchor="middle">Gateway API</text>
+<rect x="263" y="456" width="102" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="314.0" y="472" fill="#8b949e" font-size="11" text-anchor="middle">cert-manager</text>
+<rect x="373" y="456" width="170" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="458.0" y="472" fill="#8b949e" font-size="11" text-anchor="middle">Kyverno &#183; Enforce</text>
+<rect x="551" y="456" width="115" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="608.5" y="472" fill="#8b949e" font-size="11" text-anchor="middle">OTel Collector</text>
+<rect x="674" y="456" width="47" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="697.5" y="472" fill="#8b949e" font-size="11" text-anchor="middle">Helm</text>
+<path d="M132 484 L132 564" stroke="#8b949e" stroke-width="1.5" stroke-dasharray="6 6" fill="none" marker-end="url(#arc)"/>
+<text x="150" y="511" fill="#f0f6fc" font-size="12" font-weight="700">would run on &#8212; conceptual, not a dependency</text>
+<text x="150" y="528" fill="#8b949e" font-size="12">Neither repository names the other in code, configuration or CI. The platform</text>
+<text x="150" y="545" fill="#8b949e" font-size="12">brings itself up on kind; this is the estate it would run on, and nothing more.</text>
 <rect x="56" y="568" width="712" height="126" rx="12" fill="#11161d" stroke="#30363d" stroke-width="1"/>
-<rect x="56" y="568" width="5" height="126" rx="2.5" fill="#f0883e"/>
-<text x="84" y="598" fill="#f0883e" font-size="11" font-weight="700" letter-spacing="0.08em">THE WORKLOAD</text>
-<text x="84" y="628" fill="#f0f6fc" font-size="20" font-weight="700">otel-service-reference</text>
-<text x="84" y="652" fill="#c9d1d9" font-size="13">The instrumented Go service the platform deploys. Shares no code &#8212; only OTLP.</text>
-<rect x="84" y="666" width="34" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-<text x="101.0" y="682" fill="#8b949e" font-size="11" text-anchor="middle">Go</text>
-<rect x="126" y="666" width="74" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-<text x="163.0" y="682" fill="#8b949e" font-size="11" text-anchor="middle">OTel SDK</text>
-<rect x="208" y="666" width="129" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-<text x="272.5" y="682" fill="#8b949e" font-size="11" text-anchor="middle">traces + metrics</text>
-<rect x="345" y="666" width="81" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
-<text x="385.5" y="682" fill="#8b949e" font-size="11" text-anchor="middle">exemplars</text>
+<rect x="56" y="568" width="5" height="126" rx="2.5" fill="#bc8cff"/>
+<text x="84" y="598" fill="#bc8cff" font-size="11" font-weight="700" letter-spacing="0.08em">THE CLOUD</text>
+<text x="84" y="628" fill="#f0f6fc" font-size="20" font-weight="700">terragrunt-reference-architecture</text>
+<text x="84" y="652" fill="#c9d1d9" font-size="13">The AWS estate, across isolated management, staging and prod accounts.</text>
+<rect x="84" y="666" width="74" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="121.0" y="682" fill="#8b949e" font-size="11" text-anchor="middle">OpenTofu</text>
+<rect x="166" y="666" width="88" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="210.0" y="682" fill="#8b949e" font-size="11" text-anchor="middle">Terragrunt</text>
+<rect x="262" y="666" width="40" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="282.0" y="682" fill="#8b949e" font-size="11" text-anchor="middle">EKS</text>
+<rect x="310" y="666" width="61" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="340.5" y="682" fill="#8b949e" font-size="11" text-anchor="middle">Aurora</text>
+<rect x="379" y="666" width="129" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="443.5" y="682" fill="#8b949e" font-size="11" text-anchor="middle">CloudFront + WAF</text>
+<rect x="516" y="666" width="95" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="563.5" y="682" fill="#8b949e" font-size="11" text-anchor="middle">GitHub OIDC</text>
 <rect x="848" y="136" width="336" height="148" rx="12" fill="#11161d" stroke="#30363d" stroke-width="1" stroke-dasharray="7 5"/>
 <rect x="848" y="136" width="5" height="148" rx="2.5" fill="#3fb950"/>
 <text x="876" y="166" fill="#3fb950" font-size="11" font-weight="700" letter-spacing="0.08em">READ-ONLY CLI</text>
