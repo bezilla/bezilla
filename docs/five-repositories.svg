@@ -6,7 +6,7 @@
 <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#8b949e"/></marker><marker id="arc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="none" stroke="#8b949e" stroke-width="1.4"/></marker></defs>
 <text x="56" y="52" fill="#f0f6fc" font-size="26" font-weight="700">Five repositories: what depends on what</text>
 <text x="56" y="80" fill="#8b949e" font-size="14">Three of them form a stack; capsize and switchyard depend on nothing here, so nothing joins them to it.</text>
-<text x="56" y="118" fill="#8b949e" font-size="11" font-weight="700" letter-spacing="0.08em">ONE STACK &#183; EACH EDGE LABELLED WITH WHAT IT ACTUALLY IS</text>
+<text x="56" y="118" fill="#8b949e" font-size="11" font-weight="700" letter-spacing="0.08em">ONE STACK &#183; TWO EDGES</text>
 <text x="848" y="118" fill="#8b949e" font-size="11" font-weight="700" letter-spacing="0.08em">STANDS ALONE &#183; DEPENDS ON NOTHING HERE</text>
 <path d="M804 132 V694" stroke="#30363d" stroke-width="1" stroke-dasharray="6 6" fill="none"/>
 <rect x="56" y="136" width="712" height="126" rx="12" fill="#11161d" stroke="#30363d" stroke-width="1"/>
