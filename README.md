@@ -3,7 +3,7 @@
 Infrastructure and platform engineer. Kubernetes, observability, reliability,
 and cloud systems.
 
-#### Recent projects
+### Recent projects
 
 ![Five repositories: three stacked as application, platform, and cloud; capsize and switchyard standing separately, connected to nothing.](docs/five-repositories.svg)
 
@@ -16,7 +16,7 @@ Kubernetes CLI that scores cost waste against blast radius. switchyard is an
 inference gateway that routes across three simulated providers and fails over
 between them. Neither depends on any of the other three.
 
-#### Field notes
+### Field notes
 
 #### [Five checks that proved nothing](https://gist.github.com/bezilla/dff98698cf41129f5d262eb727ef445a)
 
