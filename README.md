@@ -22,3 +22,9 @@ between them. Neither depends on any of the other three.
 
 Building these systems exposed failures their checks missed. Five investigations
 into what went wrong, how I found it, and what changed.
+
+#### [mktemp -t means the opposite thing on macOS and Linux](https://gist.github.com/bezilla/fecad698abd68a6807e1df1ca48b2a51)
+
+`-t` takes a prefix on BSD and a template on GNU, so a line that works on macOS
+is impossible on a Linux runner. Reproducing it without a Linux box, and the
+form both accept.
