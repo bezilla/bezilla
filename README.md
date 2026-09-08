@@ -28,3 +28,15 @@ into what went wrong, how I found it, and what changed.
 `-t` takes a prefix on BSD and a template on GNU, so a line that works on macOS
 is impossible on a Linux runner. Reproducing it without a Linux box, and the
 form both accept.
+
+#### [containerPort is documentation, not a boundary](https://gist.github.com/bezilla/88971adff569794e5c9fecbc9e312173)
+
+A process answers on a port the pod spec never declares, and `kubectl
+port-forward` reaches it anyway. What actually keeps that port unpublished, and
+what `containerPort` does not do.
+
+#### [A coin flip reported as a proof](https://gist.github.com/bezilla/ec7608946a115adfaded82e6198603f2)
+
+A read-back assertion wrote through a load balancer and read through
+`port-forward`, so it checked one replica in three. Why it passed against a
+boundary broken on purpose, and the same defect surviving into the fix.
