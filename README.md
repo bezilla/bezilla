@@ -11,7 +11,7 @@ Three of these stack: **otel-service-reference** is the application,
 **kubernetes-platform-reference** is the platform it runs on, and
 **terragrunt-reference-architecture** is the cloud underneath.
 
-**capsize** and **switchyard** are joined to nothing. capsize is a read-only
+**capsize** and **switchyard** are standalone systems. capsize is a read-only
 Kubernetes CLI that scores cost waste against blast radius. switchyard is an
 inference gateway that routes across three simulated providers and fails over
 between them. Neither depends on any of the other three.
